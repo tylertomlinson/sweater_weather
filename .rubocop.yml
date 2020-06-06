@@ -18,6 +18,9 @@ Bundler/OrderedGems:
 Layout/EmptyLines:
   Enabled: true
 
+Layout/LineLength:
+  Enabled: true
+
 Style/BlockComments:
   Enabled: true
 
@@ -33,10 +36,6 @@ Style/NumericLiterals:
 Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
-
-Layout/LineLength:
-  Enabled: true
-  Max: 130
 
 Style/Documentation:
   Enabled: false
