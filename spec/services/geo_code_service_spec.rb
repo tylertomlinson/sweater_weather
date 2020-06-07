@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe GeoCodeService do
+RSpec.describe GeoCodeService, :vcr do
   it 'exists' do
     service = GeoCodeService.new
 
