@@ -1,0 +1,15 @@
+top left:
+
+temperature
+high
+low
+date
+time 
+
+
+top right:
+
+feels like
+humidity
+visibility
+UV index
