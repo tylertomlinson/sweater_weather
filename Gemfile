@@ -28,8 +28,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'vcr'
+end
+
+group :test do
   gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
