@@ -1,3 +1,5 @@
 class Api::V1::BackgroundsController < ApplicationController
-  def index; end
+  def index
+    render json: 'test'
+  end
 end
