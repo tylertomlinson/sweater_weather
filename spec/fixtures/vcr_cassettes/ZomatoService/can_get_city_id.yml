@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://developers.zomato.com/api/v2.1/cities?count=1&q=Denver,%20CO
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.0.1
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '61'
+      Server:
+      - envoy
+      X-Xss-Protection:
+      - 1; mode=block; report=https://www.zomato.com/cspreport.php
+      Content-Security-Policy:
+      - 'frame-ancestors ''self'' https://microapps.google.com/ https://pwa.zomato.com;
+        default-src *; font-src * data:; img-src * data:; media-src * blob:; script-src
+        ''self'' ''unsafe-inline'' ''unsafe-eval'' browser.sentry-cdn.com *.jwpcdn.com
+        *.cloudflare.com *.twitter.com *.recruiterbox.com *.zdev.net *.zdev.net:8080
+        *.zomato.com *.tinymce.com *.gstatic.com *.googleapis.com *.google.com *.google.co.in
+        *.facebook.com sdk.accountkit.com *.doubleclick.net *.googletagservices.com
+        *.googlesyndication.com *.nr-data.net *.newrelic.com *.google-analytics.com
+        *.zmtcdn.com *.googletagmanager.com *.facebook.net *.googleadservices.com
+        *.cdninstagram.com *.googlesyndication.com *.spreedly.com *.instagram.com
+        *.twimg.com d3mvnvhjmkxpjz.cloudfront.net d36mpcpuzc4ztk.cloudfront.net d2weczhvl823v0.cloudfront.net
+        d2z9qv80fklwtv.cloudfront.net d32l4mqe5xk032.cloudfront.net *.serving-sys.com
+        *.pubnub.com *.branch.io app.link cdn.poll-maker.com *.ampproject.org rec.smartlook.com
+        static.hotjar.com script.hotjar.com zba.se *.googletagmanager.com eff.org
+        cdn.plot.ly 3717.tm.zedo.com *.bing.com static.criteo.net sslwidget.criteo.com
+        gum.criteo.com mddigital.in static.zdassets.com zomato.zendesk.com cdn.taboola.com
+        trc.taboola.com ds-aksb-a.akamaihd.net; style-src * ''unsafe-inline''; worker-src
+        ''self'' https: blob:;'
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, PUT, PATCH, OPTIONS
+      Access-Control-Allow-Headers:
+      - X-Zomato-API-Key
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Envoy-Upstream-Service-Time:
+      - '9'
+      Date:
+      - Mon, 08 Jun 2020 16:41:47 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALBTG=zLb8WF8QvutwVFz2wIHOovrSFBHHsmnQUXxtooY+84ygv0KhrSZL1HoktEjoq44C0YxNL8vxB7v1qt48sRNXBvt2sIYXZFVZiGYYyl7ou45wf9t+aQKOzThI5Y1ShrxubBe6wiKUjnm3XXTQNBCUysgfyijTc85JGZPeRvJ39b6F2Eofm+Y=;
+        Expires=Mon, 15 Jun 2020 16:41:47 GMT; Path=/
+      - AWSALBTGCORS=zLb8WF8QvutwVFz2wIHOovrSFBHHsmnQUXxtooY+84ygv0KhrSZL1HoktEjoq44C0YxNL8vxB7v1qt48sRNXBvt2sIYXZFVZiGYYyl7ou45wf9t+aQKOzThI5Y1ShrxubBe6wiKUjnm3XXTQNBCUysgfyijTc85JGZPeRvJ39b6F2Eofm+Y=;
+        Expires=Mon, 15 Jun 2020 16:41:47 GMT; Path=/; SameSite=None; Secure
+      - csrf=4c3543aaa8b0468c03cfab23554bb523; expires=Mon, 08-Jun-2020 17:05:47 GMT;
+        Max-Age=1440; path=/; domain=.zomato.com
+      - fbcity=1; expires=Sat, 05-Dec-2020 16:41:47 GMT; Max-Age=15552000; path=/;
+        domain=.zomato.com; secure
+      - fbtrack=f05d461dcf26225ac81822b863a6ea8e; expires=Thu, 03-Jun-2021 16:41:47
+        GMT; Max-Age=31104000; path=/; domain=.zomato.com; secure
+      - zl=en; expires=Sat, 05-Dec-2020 16:41:47 GMT; Max-Age=15552000; path=/; domain=.zomato.com;
+        secure
+      Cache-Control:
+      - max-age=0, no-cache, no-store, no-transform
+      Strict-Transport-Security:
+      - max-age=31536000
+    body:
+      encoding: UTF-8
+      string: '{"code":403,"status":"Forbidden","message":"Invalid API Key"}'
+  recorded_at: Mon, 08 Jun 2020 16:41:47 GMT
+recorded_with: VCR 6.0.0
