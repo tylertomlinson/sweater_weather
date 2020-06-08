@@ -5,7 +5,7 @@ class Google
   end
 
   def travel_time
-    hash = GoogleService.get_directions(@origin, @destination)
+    hash = GoogleService.new.get_directions(@origin, @destination)
     hash[:rows].first[:elements].first[:duration].first[1]
   end
 end
