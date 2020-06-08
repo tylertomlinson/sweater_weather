@@ -1,4 +1,4 @@
 class FoodieSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id
+  attributes :id, :forecast, :temp, :travel_time
 end
