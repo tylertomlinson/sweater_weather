@@ -41,8 +41,9 @@ end
 #     "attributes": {
 #       "id": 1,
 #       "forecast": "clear sky",
-#       "temp": 78.91,
-#       "travel_time": "1 hour 48 mins"
+#       "temp": 79.16,
+#       "travel_time": "1 hour 48 mins",
+#       "end_location": "pueblo,co"
 #     }
 #   }
 # }
