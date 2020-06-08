@@ -9,7 +9,7 @@ RSpec.describe WeatherService, :vcr do
 
   it 'can get data on weather by location' do
     coordinates = { lat: 30.3321838, lon: -81.65565099999999 }
-    weather = WeatherService.weather_data(coordinates[:lat], coordinates[:lon])
+    weather = WeatherService.new.get_weather_data(coordinates[:lat], coordinates[:lon])
 
     expect(weather).to be_an_instance_of(Hash)
     expect(weather[:current]).to have_key(:sunrise)
