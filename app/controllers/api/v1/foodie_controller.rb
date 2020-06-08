@@ -1,8 +1,9 @@
 class Api::V1::FoodieController < ApplicationController
   def index
     coords = the_coords(params[:end])
+    location = params[:end]
     weather_data = WeatherService.new.get_weather_data(coords[:lat], coords[:lng])
-    render json: FoodieSerializer.new(Foodie.new(weather_data, travel_time))
+    render json: FoodieSerializer.new(Foodie.new(weather_data, travel_time, location))
   end
 end
 
@@ -29,6 +30,19 @@ end
 #         "name": "Angelo's Pizza Parlor",
 #         "address": "105 E Riverwalk, Pueblo 81003"
 #       }
+#     }
+#   }
+# }
+# PAW RESPONSE
+# {
+#   "data": {
+#     "id": "1",
+#     "type": "foodie",
+#     "attributes": {
+#       "id": 1,
+#       "forecast": "clear sky",
+#       "temp": 78.91,
+#       "travel_time": "1 hour 48 mins"
 #     }
 #   }
 # }
