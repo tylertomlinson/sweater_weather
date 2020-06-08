@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'forecast request API' do
   it 'can return forecast data' do
-
     get '/api/v1/forecast?location=denver,co'
 
     forecast = JSON.parse(response.body, symbolize_names: true)
