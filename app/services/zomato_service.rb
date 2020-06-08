@@ -1,10 +1,9 @@
 class ZomatoService
   def initialize(search_params)
-    @city = search_params[:city]
-    @state = search_params[:state]
+    @city = search_params
   end
 
-  def restaurants_by_genre_and_location
+  def restaurants_by_location
     city = city_id
     response = conn.get('search') do |search|
       search.params['entity_id'] = city
@@ -17,15 +16,11 @@ class ZomatoService
 
   def city_id
     response = conn.get('cities') do |c|
-      c.params['q'] = cityname
+      c.params['q'] = @city
       c.params['count'] = 1
     end
     json = JSON.parse(response.body, symbolize_names: true)
     json[:location_suggestions].first[:id]
-  end
-
-  def cityname
-    "#{@city}, #{@state}"
   end
 
   def conn

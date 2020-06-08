@@ -3,7 +3,8 @@ class Api::V1::FoodieController < ApplicationController
     coords = the_coords(params[:end])
     location = params[:end]
     weather_data = WeatherService.new.get_weather_data(coords[:lat], coords[:lng])
-    render json: FoodieSerializer.new(Foodie.new(weather_data, travel_time, location))
+    restaurant = ZomatoService.new(params[:end]).restaurants_by_location
+    render json: FoodieSerializer.new(Foodie.new(weather_data, travel_time, location, restaurant))
   end
 end
 
@@ -15,6 +16,8 @@ end
 def travel_time
   Google.new(params[:start], params[:end]).travel_time
 end
+
+
 #
 #   "data": {
 #     "id": "null",

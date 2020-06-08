@@ -11,12 +11,12 @@ RSpec.describe ZomatoService, :vcr do
     expect(@service).to be_an_instance_of(ZomatoService)
   end
 
-  xit 'can get city id' do
+  it 'can get city id' do
     city_name = @service.cityname
     expect(city_name).to eq('Denver, CO')
 
     city_id = @service.city_id
-    expect(city_id).to eq('hello')
+    expect(city_id).to eq(305)
   end
 
   it 'can get restuarant name/address by end location' do

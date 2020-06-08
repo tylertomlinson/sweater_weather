@@ -7,6 +7,8 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
+      User-Key:
+      - 36884c5659ab744bdea220c048f1c118
       User-Agent:
       - Faraday v1.0.1
       Accept-Encoding:
@@ -15,13 +17,11 @@ http_interactions:
       - "*/*"
   response:
     status:
-      code: 403
-      message: Forbidden
+      code: 200
+      message: OK
     headers:
       Content-Type:
       - application/json
-      Content-Length:
-      - '61'
       Server:
       - envoy
       X-Xss-Protection:
@@ -55,23 +55,27 @@ http_interactions:
       Access-Control-Allow-Credentials:
       - 'true'
       X-Envoy-Upstream-Service-Time:
-      - '9'
+      - '43'
+      Vary:
+      - Accept-Encoding
       Date:
-      - Mon, 08 Jun 2020 16:41:47 GMT
+      - Mon, 08 Jun 2020 18:24:14 GMT
+      Content-Length:
+      - '423'
       Connection:
       - keep-alive
       Set-Cookie:
-      - AWSALBTG=zLb8WF8QvutwVFz2wIHOovrSFBHHsmnQUXxtooY+84ygv0KhrSZL1HoktEjoq44C0YxNL8vxB7v1qt48sRNXBvt2sIYXZFVZiGYYyl7ou45wf9t+aQKOzThI5Y1ShrxubBe6wiKUjnm3XXTQNBCUysgfyijTc85JGZPeRvJ39b6F2Eofm+Y=;
-        Expires=Mon, 15 Jun 2020 16:41:47 GMT; Path=/
-      - AWSALBTGCORS=zLb8WF8QvutwVFz2wIHOovrSFBHHsmnQUXxtooY+84ygv0KhrSZL1HoktEjoq44C0YxNL8vxB7v1qt48sRNXBvt2sIYXZFVZiGYYyl7ou45wf9t+aQKOzThI5Y1ShrxubBe6wiKUjnm3XXTQNBCUysgfyijTc85JGZPeRvJ39b6F2Eofm+Y=;
-        Expires=Mon, 15 Jun 2020 16:41:47 GMT; Path=/; SameSite=None; Secure
-      - csrf=4c3543aaa8b0468c03cfab23554bb523; expires=Mon, 08-Jun-2020 17:05:47 GMT;
+      - AWSALBTG=JJ5ecJzDnzJqoO4WzK89DPjmV0diL2qvrDneAMDe/BDY2d00BU43NwQjnMm6vpQuL5kTMvA2vKgKVApaSFXX7g1UDNDzQIrUvGxz2neEg7D85T7as0SVTM184g6oFlVT5Zki0FRTaA2vArrFCXMsQiES4GTBiIeGvQPYon37Pro+kEjjFa8=;
+        Expires=Mon, 15 Jun 2020 18:24:13 GMT; Path=/
+      - AWSALBTGCORS=JJ5ecJzDnzJqoO4WzK89DPjmV0diL2qvrDneAMDe/BDY2d00BU43NwQjnMm6vpQuL5kTMvA2vKgKVApaSFXX7g1UDNDzQIrUvGxz2neEg7D85T7as0SVTM184g6oFlVT5Zki0FRTaA2vArrFCXMsQiES4GTBiIeGvQPYon37Pro+kEjjFa8=;
+        Expires=Mon, 15 Jun 2020 18:24:13 GMT; Path=/; SameSite=None; Secure
+      - csrf=c76e58e8198d698edafe25031fdf45a8; expires=Mon, 08-Jun-2020 18:48:13 GMT;
         Max-Age=1440; path=/; domain=.zomato.com
-      - fbcity=1; expires=Sat, 05-Dec-2020 16:41:47 GMT; Max-Age=15552000; path=/;
+      - fbcity=1; expires=Sat, 05-Dec-2020 18:24:13 GMT; Max-Age=15552000; path=/;
         domain=.zomato.com; secure
-      - fbtrack=f05d461dcf26225ac81822b863a6ea8e; expires=Thu, 03-Jun-2021 16:41:47
+      - fbtrack=03ecdd226c4c289e4f875df0999923b9; expires=Thu, 03-Jun-2021 18:24:13
         GMT; Max-Age=31104000; path=/; domain=.zomato.com; secure
-      - zl=en; expires=Sat, 05-Dec-2020 16:41:47 GMT; Max-Age=15552000; path=/; domain=.zomato.com;
+      - zl=en; expires=Sat, 05-Dec-2020 18:24:13 GMT; Max-Age=15552000; path=/; domain=.zomato.com;
         secure
       Cache-Control:
       - max-age=0, no-cache, no-store, no-transform
@@ -79,6 +83,7 @@ http_interactions:
       - max-age=31536000
     body:
       encoding: UTF-8
-      string: '{"code":403,"status":"Forbidden","message":"Invalid API Key"}'
-  recorded_at: Mon, 08 Jun 2020 16:41:47 GMT
+      string: '{"location_suggestions":[{"id":305,"name":"Denver, CO","country_id":216,"country_name":"United
+        States","country_flag_url":"https:\/\/b.zmtcdn.com\/images\/countries\/flags\/country_216.png","should_experiment_with":0,"has_go_out_tab":0,"discovery_enabled":1,"has_new_ad_format":0,"is_state":0,"state_id":74,"state_name":"Colorado","state_code":"CO"}],"status":"success","has_more":0,"has_total":0,"user_has_addresses":true}'
+  recorded_at: Mon, 08 Jun 2020 18:24:14 GMT
 recorded_with: VCR 6.0.0
