@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=<GOOGLE_GEO_API>
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=<GOOGLE_API>
     body:
       encoding: US-ASCII
       string: ''
@@ -113,7 +113,7 @@ http_interactions:
   recorded_at: Sun, 07 Jun 2020 00:55:16 GMT
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=jacksonville,fl&key=<GOOGLE_GEO_API>
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=jacksonville,fl&key=<GOOGLE_API>
     body:
       encoding: US-ASCII
       string: ''

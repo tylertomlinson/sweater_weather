@@ -1,7 +1,7 @@
 class GeoCodeService
   def get_coords(location)
     response = conn.get('/maps/api/geocode/json') do |f|
-      f.params['key'] = ENV['GOOGLE_GEO_API']
+      f.params['key'] = ENV['GOOGLE_API']
       f.params['address'] = location
     end
     JSON.parse(response.body, symbolize_names: true)[:results][0]

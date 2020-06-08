@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,%20co&key=<GOOGLE_GEO_API>
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,%20co&key=<GOOGLE_API>
     body:
       encoding: US-ASCII
       string: ''
