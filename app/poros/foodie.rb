@@ -1,5 +1,6 @@
 class Foodie
   attr_reader :id, :forecast, :temp, :travel_time, :end_location
+
   def initialize(weather_data, travel_time, location)
     @id = 1
     @forecast = weather_data[:current][:weather].first[:description]

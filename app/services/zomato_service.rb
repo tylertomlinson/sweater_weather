@@ -9,8 +9,8 @@ class ZomatoService
     response = conn.get('search') do |search|
       search.params['entity_id'] = city
       search.params['entity_type'] = 'city'
-      search.params['radius'] = "10"
-      search.params['count'] = "1"
+      search.params['radius'] = '10'
+      search.params['count'] = '1'
     end
     JSON.parse(response.body, serialize_names: true)
   end
@@ -21,7 +21,6 @@ class ZomatoService
       c.params['count'] = 1
     end
     json = JSON.parse(response.body, symbolize_names: true)
-    require "pry"; binding.pry
     json[:location_suggestions].first[:id]
   end
 

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ZomatoService, :vcr do
   before(:each) do
-    @hash = { city: 'Denver',
-             state: 'CO'}
+    @hash = { city: 'Denver', state: 'CO' }
 
     @service = ZomatoService.new(@hash)
   end
@@ -14,12 +13,11 @@ RSpec.describe ZomatoService, :vcr do
 
   xit 'can get city id' do
     city_name = @service.cityname
-    expect(city_name).to eq("Denver, CO")
+    expect(city_name).to eq('Denver, CO')
 
-     city_id = @service.city_id
-    expect(city_id).to eq("hello")
+    city_id = @service.city_id
+    expect(city_id).to eq('hello')
   end
-
 
   it 'can get restuarant name/address by end location' do
   end

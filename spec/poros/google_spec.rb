@@ -13,6 +13,6 @@ describe Google do
 
   it 'can return travel time' do
     travel_time = @google.travel_time
-    expect(travel_time).to eq("1 day 1 hour")
+    expect(travel_time).to eq('1 day 1 hour')
   end
 end

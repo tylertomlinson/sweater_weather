@@ -10,7 +10,7 @@ end
 def the_coords(_location)
   GeoCodeService.new.get_coords(params[:end])[:geometry][:location]
 end
-#want to use coordinates for zomato as well
+# want to use coordinates for zomato as well
 
 def travel_time
   Google.new(params[:start], params[:end]).travel_time
