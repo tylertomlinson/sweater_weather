@@ -32,12 +32,12 @@ describe 'User request API' do
     post '/api/v1/users',
     params: user2_info.to_json,
     headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
-    require "pry"; binding.pry
+
     expect(response.status).to eq(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
-    expected(json_response).to eq('Email has already been taken')
+    expect(json_response[:body]).to eq('Email has already been taken')
+    expect(json_response[:status]).to eq(400)
   end
-
 end
