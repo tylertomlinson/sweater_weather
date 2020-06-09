@@ -17,9 +17,28 @@ describe 'User request API' do
 
     user = User.last
 
-    expect(json_response[:data][:type]).to eq('users')
+    expect(json_response[:data][:type]).to eq('user')
     expect(json_response[:data][:id]).to eq(user.id.to_s)
     expect(json_response[:data][:attributes][:email]).to eq('test@example.com')
     expect(json_response[:data][:attributes][:api_key]).to eq(user.api_key)
   end
+
+  it 'will return status 400 if email is duplicate' do
+    user1 = create(:user)
+    user2_info = { email: user1.email,
+                  password: 'test',
+                  password_confirmation: 'test' }
+
+    post '/api/v1/users',
+    params: user2_info.to_json,
+    headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
+
+    expect(response).to_not be_successful
+    expect(response.status).to eq(400)
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+
+    expected(json_response).to eq('Email has already been taken')
+  end
+
 end
