@@ -13,6 +13,9 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'app/models/user.rb'
 
+Rails/HttpStatus:
+  Enabled: false
+
 Bundler/OrderedGems:
   Enabled: true
 
