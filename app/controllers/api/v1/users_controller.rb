@@ -1,11 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params)
-    if user.save
-      success(user)
-    else
-      render json: failure(user), status: 400
-    end
+    user.save ? success(user) : failure(user)
   end
 
   private
@@ -19,6 +15,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def failure(user)
-    { body: user.errors.full_messages.to_sentence, status: 400 }
+    msg = { body: user.errors.full_messages.to_sentence, status: 400 }
+    render json: msg, status: 400
   end
 end
