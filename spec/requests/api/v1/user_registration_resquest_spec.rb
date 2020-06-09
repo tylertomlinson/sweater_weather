@@ -40,4 +40,22 @@ describe 'User request API' do
     expect(json_response[:body]).to eq('Email has already been taken')
     expect(json_response[:status]).to eq(400)
   end
+
+  it 'will return status 400 if passwords do not match' do
+    user_info = { email: 'test@example.com',
+                  password: 'test',
+                  password_confirmation: 'test1' }
+
+    post '/api/v1/users',
+    params: user_info.to_json,
+    headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
+
+    expect(response.status).to eq(400)
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
+    expect(json_response[:status]).to eq(400)
+  end
+
 end
