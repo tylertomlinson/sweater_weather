@@ -32,8 +32,7 @@ describe 'User request API' do
     post '/api/v1/users',
     params: user2_info.to_json,
     headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
-
-    expect(response).to_not be_successful
+    require "pry"; binding.pry
     expect(response.status).to eq(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)

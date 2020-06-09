@@ -15,6 +15,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def failure(user)
-    render json: user.errors.full_messages.to_sentence, status: 400
+    render json: { body: user.errors.full_messages.to_sentence, status: 400 }
   end
 end
