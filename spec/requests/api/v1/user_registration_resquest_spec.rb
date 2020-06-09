@@ -23,7 +23,7 @@ describe 'User request API' do
     expect(json_response[:data][:attributes][:api_key]).to eq(user.api_key)
   end
 
-  it 'will return status 400 if email is duplicate' do
+  it 'will return status 400 with error msg if email is duplicate' do
     user1 = create(:user)
     user2_info = { email: user1.email,
                   password: 'test',
@@ -41,7 +41,7 @@ describe 'User request API' do
     expect(json_response[:status]).to eq(400)
   end
 
-  it 'will return status 400 if passwords do not match' do
+  it 'will return status 400 with error msg if passwords do not match' do
     user_info = { email: 'test@example.com',
                   password: 'test',
                   password_confirmation: 'test1' }
@@ -58,4 +58,37 @@ describe 'User request API' do
     expect(json_response[:status]).to eq(400)
   end
 
+  it 'will return status 404 with error msg if passwords do not match (case sensitive)' do
+    user_info = { email: 'test@example.com',
+                  password: 'tEST',
+                  password_confirmation: 'test' }
+
+    post '/api/v1/users',
+    params: user_info.to_json,
+    headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
+
+    expect(response.status).to eq(400)
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
+    expect(json_response[:status]).to eq(400)
+  end
+
+  it 'will return status 404 with error msg if all fields are not filled in' do
+    user_info = { email: '',
+                  password: 'test',
+                  password_confirmation: 'test' }
+
+    post '/api/v1/users',
+    params: user_info.to_json,
+    headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
+
+    expect(response.status).to eq(400)
+
+    json_response = JSON.parse(response.body, symbolize_names: true)
+
+    expect(json_response[:body]).to eq("Missing required fields")
+    expect(json_response[:status]).to eq(400)
+  end
 end
