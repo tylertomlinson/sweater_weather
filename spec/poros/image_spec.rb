@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Image, :vcr do 
+describe Image, :vcr do
   before(:each) do
     @location = 'denver, co'
     @image = Image.new(@location)

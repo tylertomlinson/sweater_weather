@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ImageService, :vcr do 
+RSpec.describe ImageService, :vcr do
   it 'exists' do
     service = ImageService.new
 
