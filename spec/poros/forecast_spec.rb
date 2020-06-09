@@ -11,7 +11,7 @@ describe Forecast do
   end
 
   it 'initializes_with_attributes' do
-    expect(@forecast.id).to eq(1)
+    expect(@forecast.id).to eq(nil)
     expect(@forecast.timezone).to eq(@data[:timezone])
     expect(@forecast.current).to eq(@data[:current])
     expect(@forecast.daily).to eq(@data[:daily])
