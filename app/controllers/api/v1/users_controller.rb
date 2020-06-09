@@ -11,11 +11,11 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def success(user)
-    render json: UserSerializer.new(user), status: 201
+    render json: UserSerializer.new(user), status: :created
   end
 
   def failure(user)
     msg = { body: user.errors.full_messages.to_sentence, status: 400 }
-    render json: msg, status: 400
+    render json: msg, status: :bad_request
   end
 end
