@@ -13,7 +13,7 @@ describe 'User request API' do
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
     expect(response).to be_successful
-    expect(response.status).to eq(201)
+    expect(response).to have_http_status(201)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -37,7 +37,7 @@ describe 'User request API' do
           params: user2_info.to_json,
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
-    expect(response.status).to eq(400)
+    expect(response).to have_http_status(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -56,7 +56,7 @@ describe 'User request API' do
           params: user_info.to_json,
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
-    expect(response.status).to eq(400)
+    expect(response).to have_http_status(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -75,7 +75,7 @@ describe 'User request API' do
           params: user_info.to_json,
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
-    expect(response.status).to eq(400)
+    expect(response).to have_http_status(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -94,7 +94,7 @@ describe 'User request API' do
           params: user_info.to_json,
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
-    expect(response.status).to eq(400)
+    expect(response).to have_http_status(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
@@ -113,7 +113,7 @@ describe 'User request API' do
           params: user_info.to_json,
           headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }
 
-    expect(response.status).to eq(400)
+    expect(response).to have_http_status(400)
 
     json_response = JSON.parse(response.body, symbolize_names: true)
 
