@@ -1,13 +1,12 @@
 class Api::V1::BaseController < ApplicationController
   protect_from_forgery with: :null_session
 
-
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
 
   def login_success(user)
-    render json: UserSerializer.new(user), status: 200
+    render json: UsersSerializer.new(user), status: :ok
   end
 
   def login_failure
@@ -16,7 +15,7 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def reg_success(user)
-    render json: UserSerializer.new(user), status: :created
+    render json: UsersSerializer.new(user), status: :created
   end
 
   def reg_failure(user)

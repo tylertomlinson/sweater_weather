@@ -4,6 +4,7 @@ describe 'User registration request API' do
   before(:each) do
     @sad_path_user = create(:user)
   end
+
   it 'can create user' do
     user_info = {
       email: 'test@example.com',
@@ -22,7 +23,7 @@ describe 'User registration request API' do
 
     user = User.last
 
-    expect(json_response[:data][:type]).to eq('user')
+    expect(json_response[:data][:type]).to eq('users')
     expect(json_response[:data][:id]).to eq(user.id.to_s)
     expect(json_response[:data][:attributes][:email]).to eq('test@example.com')
     expect(json_response[:data][:attributes][:api_key]).to eq(user.api_key)
@@ -30,7 +31,9 @@ describe 'User registration request API' do
     expect(json_response[:data][:attributes][:email]).to_not eq(@sad_path_user.email)
     expect(json_response[:data][:attributes][:api_key]).to_not eq(@sad_path_user.api_key)
   end
+end
 
+describe 'User registration request API (errors)' do
   it 'will return status 400 with error msg if email is duplicate' do
     user1 = create(:user)
     user2_info = {
@@ -72,7 +75,7 @@ describe 'User registration request API' do
     expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
     expect(json_response[:status]).to eq(400)
 
-    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq('Email has already been taken')
     expect(json_response[:body]).to_not eq(400)
   end
 
@@ -94,7 +97,7 @@ describe 'User registration request API' do
     expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
     expect(json_response[:status]).to eq(400)
 
-    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq('Email has already been taken')
     expect(json_response[:body]).to_not eq(400)
   end
 
@@ -135,7 +138,7 @@ describe 'User registration request API' do
     expect(json_response[:body]).to eq("Password digest can't be blank and Password can't be blank")
     expect(json_response[:status]).to eq(400)
 
-    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq('Email has already been taken')
     expect(json_response[:body]).to_not eq(400)
   end
 end
