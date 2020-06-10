@@ -14,11 +14,11 @@ class Api::V1::BaseController < ApplicationController
     render json: msg, status: :bad_request
   end
 
-  def reg_success(user)
+  def register_success(user)
     render json: UsersSerializer.new(user), status: :created
   end
 
-  def reg_failure(user)
+  def register_failure(user)
     msg = { body: user.errors.full_messages.to_sentence, status: 400 }
     render json: msg, status: :bad_request
   end
