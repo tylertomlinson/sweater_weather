@@ -20,10 +20,9 @@ class RoadTrip
     weather = WeatherService.new.get_weather_data(coords[:lat], coords[:lng])
     [weather[:hourly][time][:weather].first[:description],
     weather[:hourly][time][:temp]]
-
   end
 
   def arrival_forecast
-    {temp: arrival_conditions[1], conditions: arrival_conditions[0]}
+    { temp: arrival_conditions[1], conditions: arrival_conditions[0] }
   end
 end
