@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe 'User registration request API' do
+  before(:each) do
+    @sad_path_user = create(:user)
+  end
   it 'can create user' do
     user_info = {
       email: 'test@example.com',
@@ -23,6 +26,9 @@ describe 'User registration request API' do
     expect(json_response[:data][:id]).to eq(user.id.to_s)
     expect(json_response[:data][:attributes][:email]).to eq('test@example.com')
     expect(json_response[:data][:attributes][:api_key]).to eq(user.api_key)
+
+    expect(json_response[:data][:attributes][:email]).to_not eq(@sad_path_user.email)
+    expect(json_response[:data][:attributes][:api_key]).to_not eq(@sad_path_user.api_key)
   end
 
   it 'will return status 400 with error msg if email is duplicate' do
@@ -43,6 +49,9 @@ describe 'User registration request API' do
 
     expect(json_response[:body]).to eq('Email has already been taken')
     expect(json_response[:status]).to eq(400)
+
+    expect(json_response[:body]).to_not eq("Password confirmation doesn't match Password")
+    expect(json_response[:body]).to_not eq(400)
   end
 
   it 'will return status 400 with error msg if passwords do not match' do
@@ -62,6 +71,9 @@ describe 'User registration request API' do
 
     expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
     expect(json_response[:status]).to eq(400)
+
+    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq(400)
   end
 
   it 'will return status 404 with error msg if passwords do not match (case sensitive)' do
@@ -81,6 +93,9 @@ describe 'User registration request API' do
 
     expect(json_response[:body]).to eq("Password confirmation doesn't match Password")
     expect(json_response[:status]).to eq(400)
+
+    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq(400)
   end
 
   it 'will return status 404 with error msg if all fields are not filled in (email)' do
@@ -119,5 +134,8 @@ describe 'User registration request API' do
 
     expect(json_response[:body]).to eq("Password digest can't be blank and Password can't be blank")
     expect(json_response[:status]).to eq(400)
+
+    expect(json_response[:body]).to_not eq("Email has already been taken")
+    expect(json_response[:body]).to_not eq(400)
   end
 end
