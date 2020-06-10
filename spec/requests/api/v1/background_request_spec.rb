@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'background request API' do
+describe 'background request API', :vcr do
   it 'can return image' do
     get '/api/v1/backgrounds?location=denver,co'
 

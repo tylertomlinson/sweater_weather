@@ -44,6 +44,7 @@ describe 'User login request API' do
     json_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(json_response[:body]).to eq('The credentials entered are invalid')
+    expect(json_response[:status]).to_not eq(201)
   end
 
   it 'will not authenticate a user with invalid street cred (password)' do
@@ -62,5 +63,6 @@ describe 'User login request API' do
     json_response = JSON.parse(response.body, symbolize_names: true)
 
     expect(json_response[:body]).to eq('The credentials entered are invalid')
+    expect(json_response[:status]).to_not eq(201)
   end
 end

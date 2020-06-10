@@ -23,7 +23,24 @@ class Api::V1::BaseController < ApplicationController
     render json: msg, status: :bad_request
   end
 
+  def trip_failure
+    msg = { body: 'Unauthorized, No road trip for you', status: 401 }
+    render json: msg, status: :unauthorized
+  end
+
   def the_coords(_location)
     GeoCodeService.new.get_coords(params[:location])[:geometry][:location]
+  end
+
+  def coords
+    the_coords(params[:location])
+  end
+
+  def weather_data
+    WeatherService.new.get_weather_data(coords[:lat], coords[:lng])
+  end
+
+  def road_trippin
+    render json: RoadTripSerializer.new(RoadTrip.new(params[:origin], params[:destination]))
   end
 end
