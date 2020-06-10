@@ -1,17 +1,6 @@
-class Api::V1::SessionsController < ApplicationController
+class Api::V1::SessionsController < Api::V1::BaseController
   def create
     user = User.find_by(email: params[:email])
-    user && user.authenticate(params[:password]) ? success(user) : failure
-  end
-
-private
-
-  def success(user)
-    render json: UserSerializer.new(user), status: 200
-  end
-
-  def failure
-    msg = { body: 'The credentials entered are invalid', status: 400 }
-    render json: msg, status: :bad_request
+    user && user.authenticate(params[:password]) ? login_success(user) : login_failure
   end
 end
