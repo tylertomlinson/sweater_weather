@@ -44,11 +44,13 @@ Shoulda::Matchers.configure do |config|
 end
 
 VCR.configure do |config|
-  config.allow_http_connections_when_no_cassette = true
+  #config.allow_http_connections_when_no_cassette = true
   config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.filter_sensitive_data('<GOOGLE_API>') { ENV['GOOGLE_API'] }
+  config.filter_sensitive_data('<WEATHER_API>') { ENV['WEATHER_API'] }
+  config.filter_sensitive_data('<UNSPLASH_API>') { ENV['UNSPLASH_API'] }
 end
 
 RSpec.configure do |config|
