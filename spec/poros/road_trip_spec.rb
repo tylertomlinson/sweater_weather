@@ -27,6 +27,6 @@ describe RoadTrip, :vcr do
   end
 
   it 'can get arrival forecast' do
-    expect(@road_trip.arrival_forecast).to be_an_instance_of(String)
+    expect(@road_trip.arrival_forecast).to be_an_instance_of(Hash)
   end
 end
