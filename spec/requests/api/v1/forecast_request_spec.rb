@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe 'forecast request API', :vcr do
+describe 'Forecast request API', :vcr do
   it 'can return forecast data' do
     get '/api/v1/forecast?location=denver,co'
 
-    forecast = JSON.parse(response.body, symbolize_names: true)
+    json_response = JSON.parse(response.body, symbolize_names: true)
     expect(response).to be_successful
-    expect(forecast[:data][:attributes]).to have_key(:id)
-    expect(forecast[:data][:attributes]).to have_key(:timezone)
-    expect(forecast[:data][:attributes]).to have_key(:current)
-    expect(forecast[:data][:attributes]).to have_key(:daily)
-    expect(forecast[:data][:attributes]).to have_key(:hourly)
+    expect(json_response[:data][:attributes]).to have_key(:id)
+    expect(json_response[:data][:attributes]).to have_key(:timezone)
+    expect(json_response[:data][:attributes]).to have_key(:current)
+    expect(json_response[:data][:attributes]).to have_key(:daily)
+    expect(json_response[:data][:attributes]).to have_key(:hourly)
   end
 end
