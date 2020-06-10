@@ -18,12 +18,16 @@ describe RoadTrip, :vcr do
   end
 
   it 'can get travel time' do
-    service = GoogleMatrixService.new.get_distance(@origin, @destination)
-    hash_digging = service[:rows].first[:elements].first
-    still_hash_digging = service[:rows].first[:elements].first[:duration].first[1]
+    expect(@road_trip.travel_time).to eq('1 day 1 hour')
+  end
 
-    expect(service).to be_an_instance_of(Hash)
-    expect(hash_digging).to have_key(:distance)
-    expect(still_hash_digging).to eq('1 day 1 hour')
+  it 'can get trip coordinates' do
+    coords = { lat: 30.3321838, lng: -81.65565099999999 }
+    expect(@road_trip.coords).to eq(coords)
+  end
+
+  it 'can get arrival forecast' do
+    forecast = 'few clouds'
+    expect(@road_trip.arrival_forecast).to eq(forecast)
   end
 end

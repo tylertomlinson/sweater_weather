@@ -1,5 +1,4 @@
 class GoogleMatrixService
-
   def get_distance(origin, destination)
     response = conn.get('/maps/api/distancematrix/json') do |f|
       f.params['key'] = ENV['GOOGLE_API']

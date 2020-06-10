@@ -50,3 +50,6 @@ Metrics/BlockLength:
 
 Style/SafeNavigation:
   Enabled: true
+
+Metrics/AbcSize:
+  Enabled: false
