@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User request API' do
+describe 'User registration request API' do
   it 'can create user' do
     user_info = {
       email: 'test@example.com',
