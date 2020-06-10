@@ -49,4 +49,4 @@ Metrics/BlockLength:
   Max: 100
 
 Style/SafeNavigation:
-  Enabled: false
+  Enabled: true
