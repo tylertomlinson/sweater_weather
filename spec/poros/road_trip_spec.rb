@@ -16,4 +16,14 @@ describe RoadTrip, :vcr do
     expect(@road_trip.origin).to eq(@origin)
     expect(@road_trip.destination).to eq(@destination)
   end
+
+  it 'can get travel time' do
+    service = GoogleMatrixService.new.get_distance(@origin, @destination)
+    hash_digging = service[:rows].first[:elements].first
+    still_hash_digging = service[:rows].first[:elements].first[:duration].first[1]
+
+    expect(service).to be_an_instance_of(Hash)
+    expect(hash_digging).to have_key(:distance)
+    expect(still_hash_digging).to eq('1 day 1 hour')
+  end
 end
