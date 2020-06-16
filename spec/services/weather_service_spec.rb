@@ -17,3 +17,5 @@ RSpec.describe WeatherService, :vcr do
     expect(weather[:current]).to have_key(:feels_like)
   end
 end
+
+#testing
