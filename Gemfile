@@ -11,7 +11,7 @@ gem 'fast_jsonapi'
 gem 'figaro'
 gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '~> 5.0'
